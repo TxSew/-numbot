@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios, { AxiosError } from 'axios';
-import { IUser } from 'numbot-backend';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IOrganizationUser } from '../types/backend';
+import { IOrganizationUser, IUser } from '../types/backend';
 import { useBackendControllerContext } from './BackendControllerContext';
 
 interface AuthContextType {

@@ -1,8 +1,7 @@
 import { Box, Dialog, DialogTitle, Stack, Typography } from '@mui/material';
-import { IAvatar, IAvatarItem } from 'numbot-backend';
 import { appConfig } from '../../../../configs/AppConfig';
 import { appColors } from '../../../../themes';
-import { ItemType } from '../../../../types/backend';
+import { IAvatar, IAvatarItem, ItemType } from '../../../../types/backend';
 import { useAvatarBuiler } from '../hook/AvatarBuilerProvider';
 import AvatarItem from './avatar-inventory/AvatarItem';
 

@@ -1,9 +1,8 @@
 import { Box, Stack, useMediaQuery } from '@mui/material';
-import { IAvatar, IAvatarItem } from 'numbot-backend';
 import { useMemo, useState } from 'react';
 import { heightBotInventory } from '.';
 import { fullScreen } from '../..';
-import { ItemType } from '../../../../../types/backend';
+import { IAvatar, IAvatarItem, ItemType } from '../../../../../types/backend';
 import { useAvatarBuiler } from '../../hook/AvatarBuilerProvider';
 import PopupAvatarItems from '../PopupAvatarItems';
 import AvatarItem from './AvatarItem';

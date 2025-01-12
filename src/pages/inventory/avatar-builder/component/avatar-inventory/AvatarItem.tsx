@@ -1,9 +1,9 @@
 import { Box, Stack, Typography } from '@mui/material';
-import { IAvatarItem } from 'numbot-backend';
 import { fullScreen } from '../..';
 import { appConfig } from '../../../../../configs/AppConfig';
 import { appColors } from '../../../../../themes';
 import { useAvatarBuiler } from '../../hook/AvatarBuilerProvider';
+import { IAvatarItem } from '../../../../../types/backend';
 
 type Props = {
     isFullBody: Boolean;

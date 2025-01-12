@@ -1,10 +1,9 @@
-import { IAvatar, IAvatarItem } from 'numbot-backend';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { BotConfiguration, BotPart } from '../../../../components/bot/BotConfiguration';
 import { useAuth } from '../../../../contexts/AuthContext';
 import { useBackendControllerContext } from '../../../../contexts/BackendControllerContext';
 import { useBackdropContext } from '../../../../providers/BackdropProvider';
-import { GropupType, ItemType } from '../../../../types/backend';
+import { GropupType, IAvatar, IAvatarItem, ItemType } from '../../../../types/backend';
 import { botPartsTab, Member, TypeFilter } from '../configs';
 
 export default function useAvatarBuilerContext() {
