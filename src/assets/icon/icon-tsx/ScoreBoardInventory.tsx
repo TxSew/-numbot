@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+
 import { useSnackbar } from '../../../components/snackbar';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useSmallerThan } from '../../../hooks/useResponsive';
@@ -8,7 +8,7 @@ export default function ScoreBoardInventory() {
     const isSmall = useSmallerThan('sm');
     const isMedium = useSmallerThan('md')
         const { showSnackbar } = useSnackbar();
-         const navigate = useNavigate()
+        
     
 
     const { organizationUsers } = useAuth();
