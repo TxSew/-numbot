@@ -2,7 +2,7 @@ const env = import.meta.env;
 
 export const appConfig = {
     service: {
-        api: env.VITE_NUMBOT_API_URL || 'https://1gsv09q2-8000.asse.devtunnels.ms/api',
+        api: env.VITE_NUMBOT_API_URL || 'https://wf96ndf0-8000.asse.devtunnels.ms/api',
     },
     url:{
         pathBotProgress: env.VITE_PATH_STATIC_NUMBOTS_BOT_PROGRESS_URL!,
