@@ -51,13 +51,13 @@ export default function GameStagePage() {
                 >
                     <StoryIcon />
                 </Box>
-                <Box
+                {/* <Box
                     onClick={() => {
                         navigate('challenge');
                     }}
                 >
                     <ChallengeIcon />
-                </Box>
+                </Box> */}
             </Stack>
         </Stack>
     );
