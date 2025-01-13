@@ -51,7 +51,7 @@ type Props = {
 
 export default function QuestionsGame(props: Props) {
     const { gameStats, onGameStats, levelItem, popupIntroducingGame } = props;
-    const { stageController, userLevelController, coinTransactionController } = useBackendControllers();
+    const { stageController, userLevelController} = useBackendControllers();
     const { organizationUsers } = useAuth();
     const isTabletAlt = useTablet();
     const isMobile = useMobile();
