@@ -24,6 +24,7 @@ import RodGame from '../../../assets/icon/icon-tsx/RodIcon';
 import AnswersStory from '../../../assets/icon/icon-tsx/AnswersStory';
 import CoinsStoryIcon from '../../../assets/icon/icon-tsx/CoinsStoryIcon';
 import { initialKeyboardKeys } from '../../../components/game-appbar/configs';
+import { useAuth } from '../../../contexts/AuthContext';
 
 export interface GameStats {
     startTime: Date;
@@ -50,6 +51,8 @@ type Props = {
 
 export default function QuestionsGame(props: Props) {
     const { gameStats, onGameStats, levelItem, popupIntroducingGame } = props;
+    const { stageController, userLevelController, coinTransactionController } = useBackendControllers();
+    const { organizationUsers } = useAuth();
     const isTabletAlt = useTablet();
     const isMobile = useMobile();
     // console.log('🚀 ~ QuestionsGame ~ isMobile, isTabletAlt:', { isMobile, isTabletAlt });
@@ -59,7 +62,6 @@ export default function QuestionsGame(props: Props) {
     const isXSmall = useSmallerThan('xs');
     const isSmall = useSmallerThan('sm');
     const isMedium = useSmallerThan('md');
-    const { stageController, userLevelController } = useBackendControllers();
     const isMobileOrTablet = useMediaQuery('(max-width: 768px)');
     const isMobileM = useMediaQuery('(max-width: 375px)');
     const isMobileS = useMediaQuery('(max-width: 320px)');
@@ -169,11 +171,11 @@ export default function QuestionsGame(props: Props) {
                     // console.log('finalStats', { ...finalStats });
                     onGameStats({ ...finalStats });
                     // console.log('gameStats!', { gameStats });
-                    if (finalStats.endTime) {
+                    if (finalStats.endTime && organizationUsers?.length) {
                         handleSubmitLevel({
                             archivedStars: finalStats.archivedStars,
                             levelId: levelItem?.id,
-                            playerId: 4,
+                            playerId: organizationUsers[0].id,
                             id: levelItem?.user_levels?.[0]?.id || undefined,
                         } as IUserLevel);
                         const isFirstPlay = !levelItem?.user_levels || levelItem?.user_levels.length === 0;
@@ -285,13 +287,14 @@ export default function QuestionsGame(props: Props) {
     };
 
     const handleSubmitLevel = async (data: IUserLevel) => {
+        if (!organizationUsers?.length) return;
         try {
             await userLevelController.upsert(data);
-            await stageController.listStageByOrganizationUserId(4);
-            await stageController.getStageById({ stageId: Number(stageId), playerId: 4 });
+            await stageController.listStageByOrganizationUserId(organizationUsers[0].id);
+            await stageController.getStageById({ stageId: Number(stageId), playerId: organizationUsers[0].id });
 
             queryClient.invalidateQueries({
-                queryKey: ['listStages',],
+                queryKey: ['listStages'],
                 exact: true,
             });
             queryClient.invalidateQueries({
