@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import ChallengeIcon from '../../assets/icon/icon-tsx/ChallengeIcon';
+// import ChallengeIcon from '../../assets/icon/icon-tsx/ChallengeIcon';
 import StoryIcon from '../../assets/icon/icon-tsx/StoryIcon';
 import GameAppBar from '../../components/game-appbar';
 import { appConfig } from '../../configs/AppConfig';
